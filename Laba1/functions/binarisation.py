@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 from math import floor, sqrt
-from functions.oversampling import *
+from oversampling import *
 import numpy as np
 import scipy.stats as stats
 

@@ -35,6 +35,7 @@ def main():
     Disgusting_Men_image = Image.open("pictures/DisgustingMen/DisgustingMen.bmp")
     new_Disgusting_Men_image = change_to_semitone(Disgusting_Men_image)
     new_Disgusting_Men_image.save("pictures/DisgustingMen/newDisgustingMen.bmp")
+    new_Disgusting_Men_image.show()
     text_image = Image.open("pictures/text/text.bmp")
     new_text_image = change_to_semitone(text_image)
     new_text_image.save("pictures/text/new_text.bmp")
