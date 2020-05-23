@@ -12,7 +12,7 @@ def foo(item):
 
 
 def plotX(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     plt.axis('off')
     x = range(width)
@@ -25,7 +25,7 @@ def plotX(symbol):
 
 
 def plotY(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     base = plt.gca().transData
     rot = transforms.Affine2D().rotate_deg(90)

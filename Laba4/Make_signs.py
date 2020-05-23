@@ -11,7 +11,7 @@ def foo(item):
 
 
 def weight_of_black(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     sum_ = 0
     for x in range(width):
@@ -22,7 +22,7 @@ def weight_of_black(symbol):
 
 
 def coords_of_center_of_gravity(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     sum1 = 0
     sum2 = 0
@@ -38,23 +38,23 @@ def coords_of_center_of_gravity(symbol):
 
 
 def norm_coords_of_center_of_gravity(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     sum1 = 0
     sum2 = 0
     for x in range(width):
         for y in range(height):
-            sum1 += x * (1 - foo(image.getpixel((x,y))))
+            sum1 += (x + 1)* (1 - foo(image.getpixel((x,y))))
     for x in range(width):
         for y in range(height):
-            sum2 += y * (1 - foo(image.getpixel((x,y)))) 
+            sum2 += (y + 1) * (1 - foo(image.getpixel((x,y)))) 
     weight = weight_of_black(symbol)[0]
     return ((sum1 / weight) - 1) / (width - 1), ((sum2 / weight) - 1) / (height - 1)
 
 
 
 def axial_moments_of_inertia(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     sum1 = 0
     sum2 = 0
@@ -70,18 +70,18 @@ def axial_moments_of_inertia(symbol):
 
 
 def norm_axial_moments_of_inertia(symbol):
-    image = Image.open("pictures/" + symbol + ".png")
+    image = Image.open("symbols/" + symbol + ".png")
     width, height = image.size
     sum1 = 0
     sum2 = 0
     center = coords_of_center_of_gravity(symbol)
     for x in range(width):
         for y in range(height):
-            sum1 += (1 - foo(image.getpixel((x,y)))) * (y - center[1]) ** 2
+            sum1 += (1 - foo(image.getpixel((x,y)))) * (y + 1- center[1]) ** 2
     for x in range(width):
         for y in range(height):
-            sum2 += (1 - foo(image.getpixel((x,y)))) * (x - center[0]) ** 2
-    return sum1 / (width ** 2 + height ** 2), sum2 / (width ** 2 + height ** 2)
+            sum2 += (1 - foo(image.getpixel((x,y)))) * (x + 1- center[0]) ** 2
+    return sum1 / (width ** 2 + height ** 2), sum2 / (width** 2 + height ** 2)
 
 
 

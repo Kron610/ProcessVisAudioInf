@@ -70,6 +70,7 @@ def get_normalize(matrix, max_value):
 
 def main():
     Olaf_image = change_to_semitone(Image.open("pictures/Olaf.png"))
+    Olaf_image.save("pictures/Olaf_semitone.png")
     Gx, max_x = get_Gx(Olaf_image)
     Gy, max_y = get_Gy(Olaf_image)
     G, max_g = get_gradient(Gx, Gy)

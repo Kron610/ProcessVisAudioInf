@@ -75,6 +75,16 @@ def closing(image):
 
 
 
+def different(image, new_image):
+    width, height = image.size
+    dif_image = Image.new('P', (width, height))
+    for x in range(width):
+        for y in range(height):
+            dif_image.putpixel((x, y), abs(image.getpixel((x,y)) - new_image.getpixel((x,y))))
+    return dif_image
+    
+
+
 def main():
     text_image = Image.open("pictures/new_text.bmp")
     new_image = closing(text_image)

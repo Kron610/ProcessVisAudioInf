@@ -64,16 +64,16 @@ def crop(image):
 
 
 def main():
-    font_size = 70
-    font = ImageFont.truetype("TNR.ttf", font_size)
+    font_size = 36
+    font = ImageFont.truetype("arial.ttf", font_size)
     text = "αβγδεζηθικλμνξοπρστυφχψω"
-    get_symbol_images(text, font, 70)
+    get_symbol_images(text, font, font_size)
     for symbol in text:
-        image = Image.open("pictures/" + symbol + ".png")
+        image = Image.open("symbols/" + symbol + ".png")
         cp_image = crop(image)
-        cp_image.save("pictures/" + symbol + ".png")
+        cp_image.save("symbols/" + symbol + ".png")
     
 
 
-if __name__ == "__name__":
+if __name__ == "__main__":
     main()
